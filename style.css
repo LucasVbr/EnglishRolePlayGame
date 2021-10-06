@@ -15,11 +15,9 @@
     --dark-purple: #8e44ad;
 }
 
-.container {
-    min-height: 100vh;
-}
+.container {min-height: 100vh;}
 
-.turn {
+#turn {
     text-align: center;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     padding: 15px 0;
