@@ -1,0 +1,56 @@
+:root {
+    --border-radius : 15px;
+
+    --white: #ecf0f1;
+    --black: #2c3e50;
+
+    --red: #e74c3c;
+    --blue: #3498db;
+    --green: #2ecc71;
+    --purple: #9b59b6;
+
+    --dark-red: #c0392b;
+    --dark-blue: #2980b9;
+    --dark-green: #27ae60;
+    --dark-purple: #8e44ad;
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.turn {
+    text-align: center;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    padding: 15px 0;
+}
+
+.turn-hacker {background-color: var(--red);}
+.turn-cyber {color:var(--blue);}
+
+.title {margin: 100px 0;}
+
+.choose-btn {
+    font-size: 2em;
+    margin: 5px;
+    padding: 50px;
+    border-radius: var(--border-radius);
+    color: var(--white);
+    transition: all 0.1s ease-out;
+}
+
+.red {background-color: var(--red);}
+.red:hover {box-shadow: 0 0 10px var(--red);}
+.red:active {background-color: var(--dark-red);}
+
+.blue {background-color: var(--blue);}
+.blue:hover {box-shadow: 0 0 10px var(--blue);}
+.blue:active {background-color: var(--dark-blue);}
+
+.green {background-color: var(--green);}
+.green:hover {box-shadow: 0 0 10px var(--green);}
+.green:active {background-color: var(--dark-green);}
+
+.purple {background-color: var(--purple);}
+.purple:hover {box-shadow: 0 0 10px var(--purple);}
+.purple:active {background-color: var(--dark-purple);}
