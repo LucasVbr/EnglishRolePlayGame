@@ -37,6 +37,10 @@
     transition: all 0.1s ease-out;
 }
 
+.choose-btn:hover {
+    cursor: pointer;
+}
+
 .red {background-color: var(--red);}
 .red:hover {box-shadow: 0 0 10px var(--red);}
 .red:active {background-color: var(--dark-red);}
