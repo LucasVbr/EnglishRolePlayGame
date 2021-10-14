@@ -1,6 +1,6 @@
 let data = [
 	{
-		question:"You are a hacker and you conceived a virus: do you sell it?",
+		question:"You conceived a virus: do you sell it?",
 		answers: ["Yes","No"]
 	},
 	{
