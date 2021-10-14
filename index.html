@@ -15,42 +15,54 @@
   
     <div class="container">
 		<!-- Header -->
-        <div style="visibility:hidden" class="row text-center">
+        <div style="visibility:hidden" id="turn_canvas" class="row text-center">
             <h3 id=turn class="turn-hacker">Hacker's turn</h3>
         </div>
 
 		<!-- Question -->
         <div class="row text-center">
-            <h1 class="title">Input players pseudo</h1>
+            <h1 id="title">Input players pseudo</h1>
         </div>
 		
 		<!-- Input pseudo -->
-		<div class="row text-center">
+		<div id="pseudo_canvas" class="row text-center">
 			<div class="col-md-6">
-				<input type="text" placeholder="Player 1"/>
+				<input id="player_one_input" type="text" placeholder="Player 1"/>
 			</div>
 			<div class="col-md-6">
-				<input type="text" placeholder="Player 2"/>
+				<input id="player_two_input" type="text" placeholder="Player 2"/>
 			</div>
 			<div class="col-md-12">
-				<input type="button" value="Let's start the game"/>
+				<input onclick="startGame()" class="btn btn-primary" type="button" value="Let's start the game"/>
 			</div>
 		</div>
 		<!-- Answers -->
-        <div style="visibility:hidden" class="row text-center bot">
+        <div id="answers_canvas" class="row text-center bot">
             <div class=" col-md-6">
-                <div class="choose-btn green">
-                    Hack the NSA
-                </div>
+                <div onclick="nextTurn(turn)" id="answer1" class="choose-btn green"></div>
             </div>
             <div class="col-md-6">
-                <div class="choose-btn purple">
-                    Hack the bakery
-                </div>
+                <div onclick="nextTurn(turn)" id="answer2" class="choose-btn purple"></div>
             </div>
         </div>
     </div>
-        
+       
+	<script>
+		let turnCanvasElement = document.getElementById("turn_canvas");
+		let turnTitle = document.getElementById("turn");
+	
+		let pseudoCanvasElement = document.getElementById("pseudo_canvas");
+		let playerOneInput = document.getElementById("player_one_input");
+		let playerTwoInput = document.getElementById("player_two_input");
+		
+		let titleElement = document.getElementById("title");
+		
+		let answersCanvasElement = document.getElementById("answers_canvas");
+		let answerOneInput = document.getElementById("answer1");
+		let answerTwoInput = document.getElementById("answer2");
+		
+		answersCanvasElement.style.visibility = "hidden";
+	</script>
 	<script src="data.js"></script>
 	<script src="script.js"></script>
 

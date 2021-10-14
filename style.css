@@ -17,6 +17,14 @@
 
 .container {min-height: 100vh;}
 
+body {
+	// background: rgb(9,9,121);
+	// background: linear-gradient(140deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+	
+	// background: rgb(121,9,9);
+	// background: linear-gradient(214deg, rgba(121,9,9,1) 0%, rgba(255,0,39,1) 100%);
+}
+
 #turn {
     text-align: center;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -24,7 +32,7 @@
 }
 
 .turn-hacker {background-color: var(--red);}
-.turn-cyber {color:var(--blue);}
+.turn-cyber {background-color:var(--blue);}
 
 .title {margin: 100px 0;}
 
