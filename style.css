@@ -17,50 +17,49 @@
 
 .container {min-height: 100vh;}
 
-body {
-	// background: rgb(9,9,121);
-	// background: linear-gradient(140deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-	
-	// background: rgb(121,9,9);
-	// background: linear-gradient(214deg, rgba(121,9,9,1) 0%, rgba(255,0,39,1) 100%);
-}
-
 #turn {
     text-align: center;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     padding: 15px 0;
+    transition: 0.25s all ease-in-out;
 }
 
-.turn-hacker {background-color: var(--red);}
-.turn-cyber {background-color:var(--blue);}
+#turn.turn-hacker {
+    background-color: var(--red);
+}
+#turn.turn-cyber {
+    background-color:var(--blue);
+}
 
 .title {margin: 100px 0;}
+
+#answers_canvas.turn_hacker .choose-btn {
+    box-shadow: var(--red) 0px 0px 25px;
+}
+
+#answers_canvas.turn_hacker .choose-btn {
+    box-shadow: var(--blue) 0px 0px 25px;
+}
 
 .choose-btn {
     font-size: 2em;
     margin: 5px;
     padding: 50px;
     border-radius: var(--border-radius);
-    color: var(--white);
     transition: all 0.1s ease-out;
 }
 
 .choose-btn:hover {
     cursor: pointer;
+    box-shadow: 0px 0px 5px;
+    
 }
 
-.red {background-color: var(--red);}
-.red:hover {box-shadow: 0 0 10px var(--red);}
-.red:active {background-color: var(--dark-red);}
-
-.blue {background-color: var(--blue);}
-.blue:hover {box-shadow: 0 0 10px var(--blue);}
-.blue:active {background-color: var(--dark-blue);}
-
-.green {background-color: var(--green);}
-.green:hover {box-shadow: 0 0 10px var(--green);}
-.green:active {background-color: var(--dark-green);}
-
-.purple {background-color: var(--purple);}
-.purple:hover {box-shadow: 0 0 10px var(--purple);}
-.purple:active {background-color: var(--dark-purple);}
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

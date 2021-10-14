@@ -13,36 +13,36 @@
   </head>
   <body>
   
-    <div class="container">
+    <div id="container" class="container">
 		<!-- Header -->
         <div style="visibility:hidden" id="turn_canvas" class="row text-center">
-            <h3 id=turn class="turn-hacker">Hacker's turn</h3>
+            <h3 id=turn class="turn-hacker unselectable">Hacker's turn</h3>
         </div>
 
 		<!-- Question -->
-        <div class="row text-center">
-            <h1 id="title">Input players pseudo</h1>
+        <div style="padding-top: 30vh;" class="row text-center">
+            <h1 id="title" class="unselectable">Input players pseudo</h1>
         </div>
 		
 		<!-- Input pseudo -->
-		<div id="pseudo_canvas" class="row text-center">
+		<div id="pseudo_canvas" style="padding-bottom: 50px;" class="row text-center fixed-bottom">
 			<div class="col-md-6">
 				<input id="player_one_input" type="text" placeholder="Player 1"/>
 			</div>
 			<div class="col-md-6">
 				<input id="player_two_input" type="text" placeholder="Player 2"/>
 			</div>
-			<div class="col-md-12">
+			<div style="margin-top: 100px;" class="col-md-12">
 				<input onclick="startGame()" class="btn btn-primary" type="button" value="Let's start the game"/>
 			</div>
 		</div>
 		<!-- Answers -->
-        <div id="answers_canvas" class="row text-center bot">
+        <div id="answers_canvas" style="margin-bottom: 5px;" class="row text-center fixed-bottom">
             <div class=" col-md-6">
-                <div onclick="nextTurn(turn)" id="answer1" class="choose-btn green"></div>
+                <div onclick="nextTurn(turn)" id="answer1" class="btn choose-btn unselectable"></div>
             </div>
             <div class="col-md-6">
-                <div onclick="nextTurn(turn)" id="answer2" class="choose-btn purple"></div>
+                <div onclick="nextTurn(turn)" id="answer2" class="btn choose-btn unselectable"></div>
             </div>
         </div>
     </div>
