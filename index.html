@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Let's Hack the NASA</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,40 +12,47 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-
+  
     <div class="container">
-        <div class="row text-center">
+		<!-- Header -->
+        <div style="visibility:hidden" class="row text-center">
             <h3 id=turn class="turn-hacker">Hacker's turn</h3>
         </div>
 
-
+		<!-- Question -->
         <div class="row text-center">
-            <h1 class="title">Question ???</h1>
+            <h1 class="title">Input players pseudo</h1>
         </div>
-        <div class="row text-center bot">
+		
+		<!-- Input pseudo -->
+		<div class="row text-center">
+			<div class="col-md-6">
+				<input type="text" placeholder="Player 1"/>
+			</div>
+			<div class="col-md-6">
+				<input type="text" placeholder="Player 2"/>
+			</div>
+			<div class="col-md-12">
+				<input type="button" value="Let's start the game"/>
+			</div>
+		</div>
+		<!-- Answers -->
+        <div style="visibility:hidden" class="row text-center bot">
             <div class=" col-md-6">
-                <div class="choose-btn red">
+                <div class="choose-btn green">
                     Hack the NSA
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="choose-btn blue">
-                    Hack the bakery
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="choose-btn green">
-                    Shop
-                </div>
-            </div>
-            <div class="col-md-6">
                 <div class="choose-btn purple">
-                    Sleep
+                    Hack the bakery
                 </div>
             </div>
         </div>
     </div>
         
+	<script src="data.js"></script>
+	<script src="script.js"></script>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
