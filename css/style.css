@@ -15,6 +15,11 @@
     --dark-purple: #8e44ad;
 }
 
+body {
+    overflow-y: hidden;
+    color: var(--white);
+}
+
 .container {min-height: 100vh;}
 
 #turn {
@@ -24,34 +29,44 @@
     transition: 0.25s all ease-in-out;
 }
 
-#turn.turn-hacker {
+
+#particles-js {
+    transition: 0.25s all ease-in-out;
+}
+
+.start {
+    background-color: var(--black);
+}
+
+.turn-hacker {
     background-color: var(--red);
 }
-#turn.turn-cyber {
+.turn-cyber {
     background-color:var(--blue);
 }
 
 .title {margin: 100px 0;}
 
 #answers_canvas.turn_hacker .choose-btn {
-    box-shadow: var(--red) 0px 0px 25px;
+    box-shadow: var(--red) 0 0 25px;
 }
 
 #answers_canvas.turn_hacker .choose-btn {
-    box-shadow: var(--blue) 0px 0px 25px;
+    box-shadow: var(--blue) 0 0 25px;
 }
 
 .choose-btn {
     font-size: 2em;
     margin: 5px;
     padding: 50px;
+    color: var(--white);
     border-radius: var(--border-radius);
     transition: all 0.1s ease-out;
 }
 
 .choose-btn:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 5px;
+    box-shadow: 0 0 5px;
     
 }
 

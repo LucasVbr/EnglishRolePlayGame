@@ -1,73 +1,97 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <title>Let's Hack the NASA</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS v5.0.2 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-  
-    <div id="container" class="container">
-		<!-- Header -->
-        <div style="visibility:hidden" id="turn_canvas" class="row text-center">
-            <h3 id=turn class="turn-hacker unselectable">Hacker's turn</h3>
-        </div>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-		<!-- Question -->
-        <div style="padding-top: 30vh;" class="row text-center">
-            <h1 id="title" class="unselectable">Input players pseudo</h1>
+<div style="z-index: -50; position: absolute; width: 100vw; height: 100vh;" class="start" id="particles-js"></div>
+
+<div style="position: absolute">
+    <p>
+        Points:<br>
+        Hacker:<span id="hacker-points">0</span><br>
+        Cyber:<span id="cyber-points">0</span>
+    </p>
+</div>
+
+<div id="container" class="container">
+    <!-- Header -->
+    <div style="visibility:hidden" id="turn_canvas" class="row text-center">
+        <h3 id=turn class="unselectable">Hacker's turn</h3>
+    </div>
+
+    <!-- Question -->
+    <div style="padding-top: 30vh;" class="row text-center">
+        <h1 id="title" class="unselectable">Input players pseudo</h1>
+    </div>
+
+    <!-- Input pseudo -->
+    <div id="pseudo_canvas" style="padding-bottom: 50px;" class="row text-center fixed-bottom">
+        <div class="col-md-6">
+            <input id="player_one_input" type="text" placeholder="Player 1"/>
         </div>
-		
-		<!-- Input pseudo -->
-		<div id="pseudo_canvas" style="padding-bottom: 50px;" class="row text-center fixed-bottom">
-			<div class="col-md-6">
-				<input id="player_one_input" type="text" placeholder="Player 1"/>
-			</div>
-			<div class="col-md-6">
-				<input id="player_two_input" type="text" placeholder="Player 2"/>
-			</div>
-			<div style="margin-top: 100px;" class="col-md-12">
-				<input onclick="startGame()" class="btn btn-primary" type="button" value="Let's start the game"/>
-			</div>
-		</div>
-		<!-- Answers -->
-        <div id="answers_canvas" style="margin-bottom: 5px;" class="row text-center fixed-bottom">
-            <div class=" col-md-6">
-                <div onclick="nextTurn(turn)" id="answer1" class="btn choose-btn unselectable"></div>
-            </div>
-            <div class="col-md-6">
-                <div onclick="nextTurn(turn)" id="answer2" class="btn choose-btn unselectable"></div>
-            </div>
+        <div class="col-md-6">
+            <input id="player_two_input" type="text" placeholder="Player 2"/>
+        </div>
+        <div style="margin-top: 100px;" class="col-md-12">
+            <input onclick="startGame()" class="btn btn-primary" type="button" value="Let's start the game"/>
         </div>
     </div>
-       
-	<script>
-		let turnCanvasElement = document.getElementById("turn_canvas");
-		let turnTitle = document.getElementById("turn");
-	
-		let pseudoCanvasElement = document.getElementById("pseudo_canvas");
-		let playerOneInput = document.getElementById("player_one_input");
-		let playerTwoInput = document.getElementById("player_two_input");
-		
-		let titleElement = document.getElementById("title");
-		
-		let answersCanvasElement = document.getElementById("answers_canvas");
-		let answerOneInput = document.getElementById("answer1");
-		let answerTwoInput = document.getElementById("answer2");
-		
-		answersCanvasElement.style.visibility = "hidden";
-	</script>
-	<script src="data.js"></script>
-	<script src="script.js"></script>
+    <!-- Answers -->
+    <div id="answers_canvas" style="margin-bottom: 5px;" class="row text-center fixed-bottom">
+        <div class=" col-md-6">
+            <div onclick="nextTurn(turn, 0)" id="answer1" class="btn choose-btn unselectable"></div>
+        </div>
+        <div class="col-md-6">
+            <div onclick="nextTurn(turn, 1)" id="answer2" class="btn choose-btn unselectable"></div>
+        </div>
+    </div>
+</div>
 
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-  </body>
+<!-- Bootstrap JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+<script src="./lib/particles.js-master/particles.js"></script>
+
+<!-- My JS -->
+<script>
+    let hackerPoints = document.getElementById("hacker-points");
+    let cyberPoints = document.getElementById("cyber-points");
+
+    let backgroundElement = document.getElementById("particles-js");
+    let turnCanvasElement = document.getElementById("turn_canvas");
+    let turnTitle = document.getElementById("turn");
+
+    let pseudoCanvasElement = document.getElementById("pseudo_canvas");
+    let playerOneInput = document.getElementById("player_one_input");
+    let playerTwoInput = document.getElementById("player_two_input");
+
+    let titleElement = document.getElementById("title");
+
+    let answersCanvasElement = document.getElementById("answers_canvas");
+    let answerOneInput = document.getElementById("answer1");
+    let answerTwoInput = document.getElementById("answer2");
+
+    answersCanvasElement.style.visibility = "hidden";
+</script>
+<script src="js/app.js"></script>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
 </html>

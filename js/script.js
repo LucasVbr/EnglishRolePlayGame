@@ -14,35 +14,40 @@ function main() {
 	
 }
 
-function nextTurn(id) {
-	var titles = [
-		"Hacker's turn (" + playerHacker + ")",
-		"Cybersecurity engineer's turn (" + playerCyber + ")"
-	]
-	
-	if (id != 20) {
+function nextTurn(id, rep=0) {
+	const titles = [
+		`Hacker's turn (${playerHacker})`,
+		`Cybersecurity engineer's turn (${playerCyber})`
+	];
+
+	if (id !== 20) {
 		turnTitle.innerText = titles[id % 2];
-		
-		if (id % 2 == 0) {
+
+		hackerPoints.innerHTML = expHacker;
+		cyberPoints.innerHTML = expCyber;
+
+		if (id % 2 === 0) {
 			/* Hacker Turn */
-			turnTitle.classList.remove("turn-cyber");
-			turnTitle.classList.add("turn-hacker");
+			backgroundElement.classList.remove("turn-cyber");
+			backgroundElement.classList.add("turn-hacker");
 
-			answerOneInput.style.boxShadow = "var(--red) 0px 0px 25px";
-			answerTwoInput.style.boxShadow = "var(--red) 0px 0px 25px";
+			answerOneInput.style.boxShadow = "var(--black) 0px 0px 25px";
+			answerTwoInput.style.boxShadow = "var(--black) 0px 0px 25px";
 
-			expHacker += Math.floor(1+ Math.random() * 4);
+			expHacker += data[id].points[rep];
+
 		} else {
 			/* Cyber Turn */
-			turnTitle.classList.remove("turn-hacker");
-			turnTitle.classList.add("turn-cyber");
+			backgroundElement.classList.remove("turn-hacker");
+			backgroundElement.classList.add("turn-cyber");
 
-			answerOneInput.style.boxShadow = "var(--blue) 0px 0px 25px";
-			answerTwoInput.style.boxShadow = "var(--blue) 0px 0px 25px";
+			answerOneInput.style.boxShadow = "var(--black) 0px 0px 25px";
+			answerTwoInput.style.boxShadow = "var(--black) 0px 0px 25px";
 
-			expCyber += Math.floor(1 + Math.random() * 4);
+			expCyber += data[id].points[rep];
 		}
-		
+
+
 		console.log(`expCyber:${expCyber}\nexpHacker:${expHacker}`);
 
 		titleElement.innerText = data[id].question;
@@ -63,19 +68,8 @@ function nextTurn(id) {
 }
 
 function startGame() {
-	playerOneName = playerOneInput.value;
-	playerTwoName = playerTwoInput.value;
-	
-	if (playerOneName == "") {
-	    playerOneName = "Player 1";
-	}
-	
-	if (playerTwoName == "") {
-	    playerTwoName = "Player 2";
-	}
-	
-	console.log(playerOneName);
-	console.log(playerTwoName);
+	playerOneName = playerOneInput.value !== "" ? playerOneInput.value : "Player 1";
+	playerTwoName = playerTwoInput.value !== "" ? playerTwoInput.value : "Player 2";
 	
 	/* Cacher le menu de d'input des pseudos */
 	pseudoCanvasElement.style.visibility = "hidden";
