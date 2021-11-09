@@ -61,6 +61,8 @@ function nextTurn(id, rep=0) {
 		
 		if (expHacker > expCyber) {
 			titleElement.innerText = playerHacker + " Won!";
+			backgroundElement.classList.remove("turn-cyber");
+			backgroundElement.classList.add("turn-hacker");
 		} else {
 			titleElement.innerText = playerCyber + " Won!";
 		}
